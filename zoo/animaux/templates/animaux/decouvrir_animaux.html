@@ -1,0 +1,34 @@
+{% extends "animaux/base.html" %}
+{% block content %}
+
+<div class="container">
+    <h4>Les animaux ont besoin de ton aide!  <a href="{% url 'animalerie' %}" class="btn btn-success">Commencer</a></h4>
+
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for animal in animaux %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}" style="height: 350px;">
+                <div class="card" style="height: 350px;">
+                    <img src="{{ animal.image_url }}" class="card-img-top" alt="{{ animal.name }}" style="width: 200px;">
+                    <div class="card-body" style="padding-bottom: 10px">
+                        <h5 class="card-title">{{ animal.name }}</h5>
+                        <p>Je suis {{ animal.name }}. Je suis un {{ animal.type }} de race {{ animal.race }}. Actuellement, je suis {{ animal.etat }} et je me trouve dans {{ animal.lieu }}.</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+
+
+{% endblock %}

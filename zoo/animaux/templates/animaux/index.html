@@ -1,0 +1,18 @@
+{% extends "animaux/base.html" %}
+{% block content %}
+<!-- index.html -->
+
+<div class="container">
+    <h3>Bienvenue !</h3>
+    <p>Ici, venez rencontrer nos adorables animaux et commencez une histoire avec eux !</p>
+    <div>
+        <img src="https://img1.picmix.com/output/pic/normal/2/3/2/5/2965232_ab8f1.gif" width="300px">
+
+    </div><br>
+    <div class="btn-group">
+        <a href="{% url 'decouvrir_animaux' %}" class="btn btn-primary">Découvrir les animaux</a>
+        <a href="{% url 'animalerie' %}" class="btn btn-success">Commencer</a>
+    </div>
+</div>
+
+{% endblock %}
